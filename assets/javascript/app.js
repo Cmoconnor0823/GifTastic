@@ -2,24 +2,24 @@
 //each one related to a topic that interests you.
 var pastryOpt = ["cupcake", "cookie", "pie", "bread"]
 
-// Function for displaying movie data
+// Function for displaying gifS data
 function renderButtons() {
     console.log("got into renderButtons");
     // Deleting the pastry-button before to adding new gif button
     // 
     $("#button-contain").empty();
 
-    // Looping through the array of movies
+    // Looping through the array of pastry opt
     for (var i = 0; i < pastryOpt.length; i++) {
         console.log("building a button");
-      // Then dynamicaly generating buttons for each movie in the array.
+      // Then dynamicaly generating buttons for each option in the array.
       // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
       var a = $("<button>");
       // Adding a class
-      a.addClass("button btn btn-outline- btn-lg img-responsive buttonS button");
-      // Adding a data-attribute with a value of the movie at index i
+      a.addClass("button btn btn-outline- btn-lg img-responsive buttonS button queryButton");
+      // Adding a data-attribute with a value of the pastryOpt at index i
       a.attr("data-name", pastryOpt[i]);
-      // Providing the button's text with a value of the movie at index i
+      // Providing the button's text with a value of the pastryOpt at index i
       a.text(pastryOpt[i]);
       // Adding the button to the HTML
       $("#button-contain").append(a);
@@ -35,23 +35,25 @@ function renderButtons() {
 
     // This line will grab the text from the input box
     var gif = $("#pastry-input").val().trim();
-    // The movie from the textbox is then added to our array
+    // The term from the textbox is then added to our array
     pastryOpt.push(gif);
 
-    // calling renderButtons which handles the processing of our movie array
+    // calling renderButtons which handles the processing of our gif array
     renderButtons();
   });
 
-  // Calling the renderButtons function at least once to display the initial list of movies
+  // Calling the renderButtons function at least once to display the initial list of pastries
   renderButtons();
 
   //Start of function to make api call
-  $("button").on("click", function() {
+  $(".queryButton").click(function() {
     // var person = $(this).attr("data-name");
     // use the line of code from above to grab the name not a . this 
-    var name = $("#pastry-input").val().trim();
+    var name = $(this).text().trim();
+    console.log(name)
     
-
+    
+ 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
       name + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
 
