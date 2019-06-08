@@ -1,0 +1,83 @@
+//create an array of strings, 
+//each one related to a topic that interests you.
+var pastryOpt = ["cupcake", "cookie", "pie", "bread"]
+
+// Function for displaying movie data
+function renderButtons() {
+    console.log("got into renderButtons");
+    // Deleting the pastry-button before to adding new gif button
+    // 
+    $("#button-contain").empty();
+
+    // Looping through the array of movies
+    for (var i = 0; i < pastryOpt.length; i++) {
+        console.log("building a button");
+      // Then dynamicaly generating buttons for each movie in the array.
+      // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+      var a = $("<button>");
+      // Adding a class
+      a.addClass("button btn btn-outline- btn-lg img-responsive buttonS button");
+      // Adding a data-attribute with a value of the movie at index i
+      a.attr("data-name", pastryOpt[i]);
+      // Providing the button's text with a value of the movie at index i
+      a.text(pastryOpt[i]);
+      // Adding the button to the HTML
+      $("#button-contain").append(a);
+    }
+  }
+
+  // This function handles events where one button is clicked
+  $("#add-pastry").on("click", function(event) {
+      console.log("got into click function");
+    // event.preventDefault() prevents the form from trying to submit itself.
+    // We're using a form so that the user can hit enter instead of clicking the button if they want
+    event.preventDefault();
+
+    // This line will grab the text from the input box
+    var gif = $("#pastry-input").val().trim();
+    // The movie from the textbox is then added to our array
+    pastryOpt.push(gif);
+
+    // calling renderButtons which handles the processing of our movie array
+    renderButtons();
+  });
+
+  // Calling the renderButtons function at least once to display the initial list of movies
+  renderButtons();
+
+  //Start of function to make api call
+  $("button").on("click", function() {
+    // var person = $(this).attr("data-name");
+    // use the line of code from above to grab the name not a . this 
+    var name = $("#pastry-input").val().trim();
+    
+
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+      name + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      .then(function(response) {
+        var results = response.data;
+        console.log(response, "response")
+
+        for (var i = 0; i < results.length; i++) {
+          var gifDiv = $("<div>");
+
+          var rating = results[i].rating;
+
+          var p = $("<p>").text("Rating: " + rating);
+
+          var gifImage = $("<img>");
+          gifImage.attr("src", results[i].images.fixed_height.url);
+
+          gifDiv.prepend(p);
+          gifDiv.prepend(gifImage);
+
+          $("#gifs-appear-here").prepend(gifDiv);
+        }
+        console.log("index 4",pastryOpt[4])
+      });
+  });
