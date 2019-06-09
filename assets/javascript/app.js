@@ -40,18 +40,22 @@ function renderButtons() {
 
     // calling renderButtons which handles the processing of our gif array
     renderButtons();
+
+    newButtons();
   });
 
   // Calling the renderButtons function at least once to display the initial list of pastries
   renderButtons();
 
+  newButtons();
+function newButtons(){
   //Start of function to make api call
   $(".queryButton").click(function() {
     // var person = $(this).attr("data-name");
     // use the line of code from above to grab the name not a . this 
     var name = $(this).text().trim();
     console.log(name)
-    
+  
     
  
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -61,25 +65,26 @@ function renderButtons() {
       url: queryURL,
       method: "GET"
     })
-      .then(function(response) {
-        var results = response.data;
-        console.log(response, "response")
-
-        for (var i = 0; i < results.length; i++) {
-          var gifDiv = $("<div>");
-
-          var rating = results[i].rating;
-
-          var p = $("<p>").text("Rating: " + rating);
-
-          var gifImage = $("<img>");
-          gifImage.attr("src", results[i].images.fixed_height.url);
-
-          gifDiv.prepend(p);
-          gifDiv.prepend(gifImage);
-
-          $("#gifs-appear-here").prepend(gifDiv);
-        }
-        console.log("index 4",pastryOpt[4])
-      });
+    .then(function(response) {
+      var results = response.data;
+      console.log(response, "response")
+      
+      for (var i = 0; i < results.length; i++) {
+        var gifDiv = $("<div>");
+        
+        var rating = results[i].rating;
+        
+        var p = $("<p>").text("Rating: " + rating);
+        
+        var gifImage = $("<img>");
+        gifImage.attr("src", results[i].images.fixed_height.url);
+        
+        gifDiv.prepend(p);
+        gifDiv.prepend(gifImage);
+        
+        $("#gifs-appear-here").prepend(gifDiv);
+      }
+      console.log("index 4",pastryOpt[4])
+    });
   });
+  };
