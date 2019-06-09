@@ -16,7 +16,7 @@ function renderButtons() {
       // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
       var a = $("<button>");
       // Adding a class
-      a.addClass("button btn btn-outline- btn-lg img-responsive buttonS button queryButton");
+      a.addClass("button btn btn-outline- btn-lg img-responsive m-1 buttonS button queryButton");
       // Adding a data-attribute with a value of the pastryOpt at index i
       a.attr("data-name", pastryOpt[i]);
       // Providing the button's text with a value of the pastryOpt at index i
