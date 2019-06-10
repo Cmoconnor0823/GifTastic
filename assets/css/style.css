@@ -1,17 +1,18 @@
-.background{
-    background: url("../images/photo-1513497477725-6042091800a9.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height:1500px;
+.mainContainer{
+    /*background: url("../images/photoPng.png");*/
+    background-color:rgb(240, 132, 191,0.800);
+    min-height: 800px;
     
 }
 .topBox{
-    background-color: rgba(247, 96, 214, 0.774);
+    background: url("../images/photoPng.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     color: rgb(106, 96, 247);
 }
 
 .buttonS {
-    background-color: rgba(247, 96, 214, 0.774);
+    background-color: rgba(144, 247, 96, 0.822);
     color: rgb(106, 96, 247);
     font-size: 30px;
  }
@@ -40,4 +41,11 @@
     40%, 60% {
       transform: translate3d(4px, 0, 0);
     }
-  };
+}
+/*.footer {
+    border-bottom-style: solid;
+    position : absolute;
+    bottom : 0;
+    height : 40px;
+    margin-top : 40px;
+};*/
