@@ -1,6 +1,6 @@
 .mainContainer{
-    /*background: url("../images/photoPng.png");*/
-    background-color:rgb(240, 132, 191,0.800);
+    background: url("../images/regal.png");
+    background-repeat: repeat;
     min-height: 800px;
     
 }
@@ -12,7 +12,7 @@
 }
 
 .buttonS {
-    background-color: rgba(144, 247, 96, 0.822);
+    background-color: rgb(245, 114, 168);
     color: rgb(106, 96, 247);
     font-size: 30px;
  }
