@@ -59,7 +59,7 @@ function newButtons(){
     
  
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      name + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+      name + "&api_key=9cCKc62OZDddZ0RUg9LA97G7jrfitNpq&limit=10";
 
     $.ajax({
       url: queryURL,
