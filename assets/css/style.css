@@ -16,6 +16,9 @@
     color: rgb(106, 96, 247);
     font-size: 30px;
  }
+ #gifs-appear-here{
+   float: left;
+ }
 
  .button:hover {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
