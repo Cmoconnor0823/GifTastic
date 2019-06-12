@@ -26,45 +26,51 @@ function renderButtons() {
     }
   }
 
+  
   // This function handles events where one button is clicked
   $("#add-pastry").on("click", function(event) {
-      console.log("got into click function");
+    console.log("got into click function");
     // event.preventDefault() prevents the form from trying to submit itself.
     // We're using a form so that the user can hit enter instead of clicking the button if they want
     event.preventDefault();
-
+    
     // This line will grab the text from the input box
     var gif = $("#pastry-input").val().trim();
     // The term from the textbox is then added to our array
     pastryOpt.push(gif);
-
+    
     // calling renderButtons which handles the processing of our gif array
     renderButtons();
-
+    
     newButtons();
+    
+    resetForm();
   });
-
+  
+  function resetForm() {
+    document.getElementById("gif-form").reset();
+  }
   // Calling the renderButtons function at least once to display the initial list of pastries
   renderButtons();
-
-  newButtons();
-function newButtons(){
-  //Start of function to make api call
-  $(".queryButton").click(function() {
-    // var person = $(this).attr("data-name");
-    // use the line of code from above to grab the name not a . this 
-    var name = $(this).text().trim();
-    console.log(name)
   
-    
- 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+  newButtons();
+  function newButtons(){
+    //Start of function to make api call
+    $(".queryButton").click(function() {
+      // var person = $(this).attr("data-name");
+      // use the line of code from above to grab the name not a . this 
+      var name = $(this).text().trim();
+      console.log(name)
+      
+      
+      
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
       name + "&api_key=9cCKc62OZDddZ0RUg9LA97G7jrfitNpq&limit=10";
-
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
+      
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
     .then(function(response) {
       var results = response.data;
       console.log(response, "response")
