@@ -8,16 +8,19 @@
     background: url("../images/photoPng.png");
     background-size: cover;
     background-repeat: no-repeat;
-    color: rgb(106, 96, 247);
+    color: rgb(74, 77, 243);
+    font-size: 35px;
+    width: 93%;
 }
 
 .buttonS {
     background-color: rgb(245, 114, 168);
-    color: rgb(106, 96, 247);
+    color: rgb(106, 3, 138);
     font-size: 30px;
  }
- #gifs-appear-here{
+ #gifs-appear-here div{
    float: left;
+   width: 50%;
  }
 
  .button:hover {

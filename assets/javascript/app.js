@@ -1,6 +1,6 @@
 //create an array of strings, 
 //each one related to a topic that interests you.
-var pastryOpt = ["Cupcake", "Cookie", "Pie", "Bread"]
+var pastryOpt = ["Cupcake", "Cookie", "Pie", "Bread", "Candy","Brownie","Blondie","Crossiant","Chocolate","Ice Cream"]
 
 // Function for displaying gifS data
 function renderButtons() {
@@ -77,13 +77,16 @@ function renderButtons() {
       
       for (var i = 0; i < results.length; i++) {
         var gifDiv = $("<div>");
-        
+       // gifDiv.css("width","50%");
+
+
+
         var rating = results[i].rating;
         
         var p = $("<p>").text("Rating: " + rating);
         
         var gifImage = $("<img>");
-        gifImage.attr("src", results[i].images.fixed_height.url);
+        gifImage.attr("src", results[i].images.fixed_height_still.url);
         gifImage.attr("data-still", results[i].images.fixed_height_still.url);
         gifImage.attr("data-animate", results[i].images.fixed_height.url);
         gifImage.attr("data-state", "still");
