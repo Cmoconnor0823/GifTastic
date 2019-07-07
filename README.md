@@ -11,4 +11,4 @@ start its animation.
 Styling consists of some simple css and Bootstrap.
 
 
-For comments/ concerns email me @ Cmoconnor0823@gmail.com
+For comments/ concerns email Caitlin O'Connor @ Cmoconnor0823@gmail.com
